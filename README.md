@@ -6,8 +6,25 @@ The proof of concept experiment will be a virtual drumset, where images of drums
 
 ### How To Get The Mynt Eye Branch With Python Wrapper
 ```
-git init
-git remote add origin https://github.com/slightech/MYNT-EYE-S-SDK.git
-git pull
-git reset --hard 721ad22
+$ git init
+$ git remote add origin https://github.com/slightech/MYNT-EYE-S-SDK.git
+$ git pull
+$ git reset --hard 721ad22
 ```
+In order to use the Python wrapper, you must first install the boost Python libraries: https://mastodonboost.readthedocs.io/en/latest/install.html.  
+
+Boost Side:
+
+Download Boost from here: https://www.boost.org/users/history/version_1_67_0.html
+
+```
+$ tar zxvf boost-0.1.tar.gz
+$ cd boost
+$ python3 setup.py install --install-scripts=/usr/bin
+$ ./b2 install --prefix=/...whatever_path_you_want
+
+```
+
+Or if you don't want to download from source, you can do `sudo apt-get install libboost-all-dev`
+
+Python Side: If you have python 3 pip package manager, you can do `pip3 install boost`.
