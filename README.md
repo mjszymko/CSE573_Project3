@@ -3,6 +3,23 @@ This project proposes to develop a virtual wall that a user can interact with.  
 
 The proof of concept experiment will be a virtual drumset, where images of drums will be placed at random places on the wall.  At startup, the program will locate and indentify all percussion instruments and load the associated sounds into its sound library.  The user will then be able to interact with the drumset and will be provided auditory feedback.
 
+### Setting Up the Environment
+
+This program will work on the Linux operating system and will be developing using C++, taking advantage of the Mynt Eye SDK.  Mynt Eye provides an API that was developed for users to interact with an take advantage of the available algorithms that can be used in conjunction with the camera feed.
+
+First, we pulled the Mynt Eye API
+
+```git clone https://github.com/slightech/MYNT-EYE-S-SDK.git```
+
+
+
+
+
+
+
+
+
+
 
 ### How To Get The Mynt Eye Branch With Python Wrapper
 ```
