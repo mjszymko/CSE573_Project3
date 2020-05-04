@@ -7,16 +7,44 @@ The proof of concept experiment will be a virtual drumset, where images of drums
 
 This program will work on the Linux operating system and will be developing using C++, taking advantage of the Mynt Eye SDK.  Mynt Eye provides an API that was developed for users to interact with an take advantage of the available algorithms that can be used in conjunction with the camera feed.
 
-First, we pulled the Mynt Eye API
+### Mynt Eye API (https://mynt-eye-s-sdk.readthedocs.io/en/latest/src/sdk/install_ubuntu_src.html)
+
+First, we pulled the Mynt Eye API (specifically revision 5313b70)
 
 ```git clone https://github.com/slightech/MYNT-EYE-S-SDK.git```
 
+### OpenCV (https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html)
+
+Then, opencv needs to be installed
+```
+[compiler] sudo apt-get install build-essential
+[required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+[optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+$ git clone https://github.com/opencv/opencv.git
+$ cd opencv/
+$ git checkout tags/3.4.1
+
+$ mkdir _build
+$ cd _build/
+$ rm ../CMakeCache.txt
 
 
+$ cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_CUDA=ON -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF
 
 
+$ make -j4
+$ sudo make install
+```
 
-
+Now, go back to the Mynt Eye SDK and go build it
+```
+cd <sdk>
+make install
+  
+cd <sdk>
+make samples
+```
 
 
 
