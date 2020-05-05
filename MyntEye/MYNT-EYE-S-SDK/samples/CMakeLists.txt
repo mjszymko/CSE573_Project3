@@ -68,31 +68,31 @@ set(OUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/_output")
 
 
 include_directories(
-  ${PRO_DIR}/src
+        ${PRO_DIR}/src
 )
 
 set_outdir(
-  "${OUT_DIR}/lib"
-  "${OUT_DIR}/lib"
-  "${OUT_DIR}/bin"
+        "${OUT_DIR}/lib"
+        "${OUT_DIR}/lib"
+        "${OUT_DIR}/bin"
 )
 
 if(OS_MAC)
-# samples above uvc layer
+  # samples above uvc layer
 
   make_executable(camera_u
-  SRCS uvc_camera.cc
-  LINK_LIBS mynteye ${OpenCV_LIBS}
-  DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS uvc_camera.cc
+          LINK_LIBS mynteye ${OpenCV_LIBS}
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
 else()
   # samples above device layer
 
   make_executable(camera_with_junior_device_api
-    SRCS camera_with_junior_device_api.cc
-    LINK_LIBS mynteye ${OpenCV_LIBS}
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS camera_with_junior_device_api.cc
+          LINK_LIBS mynteye ${OpenCV_LIBS}
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
 
   # samples above api layer
 
@@ -100,18 +100,18 @@ else()
     ## camera_a
 
     make_executable(camera_with_senior_api
-    SRCS camera_with_senior_api.cc
-    LINK_LIBS mynteye ${OpenCV_LIBS}
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-    )
+            SRCS camera_with_senior_api.cc
+            LINK_LIBS mynteye ${OpenCV_LIBS}
+            DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+            )
 
     ## get_depth_with_region
 
     make_executable(get_depth_with_region
-    SRCS get_depth_with_region.cc
-    LINK_LIBS mynteye ${OpenCV_LIBS}
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-    )
+            SRCS get_depth_with_region.cc
+            LINK_LIBS mynteye ${OpenCV_LIBS}
+            DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+            )
   endif()
 endif()
 
@@ -120,7 +120,7 @@ endif()
 # targets
 
 include_directories(
-  ${OpenCV_INCLUDE_DIRS}
+        ${OpenCV_INCLUDE_DIRS}
 )
 
 
@@ -133,38 +133,38 @@ if(WITH_API)
   #                 [WITH_OPENCV]
   #                 [WITH_PCL])
   macro(make_executable2 NAME)
-  set(options WITH_OPENCV WITH_PCL)
-  set(oneValueArgs)
-  set(multiValueArgs SRCS)
-  cmake_parse_arguments(THIS "${options}" "${oneValueArgs}"
-                        "${multiValueArgs}" ${ARGN})
+    set(options WITH_OPENCV WITH_PCL)
+    set(oneValueArgs)
+    set(multiValueArgs SRCS)
+    cmake_parse_arguments(THIS "${options}" "${oneValueArgs}"
+            "${multiValueArgs}" ${ARGN})
 
-  set(__link_libs mynteye)
-  set(__dll_search_paths ${PRO_DIR}/_install/bin)
-  if(THIS_WITH_OPENCV)
-    list(APPEND __link_libs ${OpenCV_LIBS})
-    list(APPEND __dll_search_paths ${OpenCV_LIB_SEARCH_PATH})
-  endif()
-  if(THIS_WITH_PCL)
-    list(APPEND __link_libs ${PCL_LIBRARIES})
-    #list(APPEND __link_libs pcl::pcl)
-    list(APPEND __dll_search_paths ${PCL_LIB_SEARCH_PATH})
-  endif()
+    set(__link_libs mynteye)
+    set(__dll_search_paths ${PRO_DIR}/_install/bin)
+    if(THIS_WITH_OPENCV)
+      list(APPEND __link_libs ${OpenCV_LIBS})
+      list(APPEND __dll_search_paths ${OpenCV_LIB_SEARCH_PATH})
+    endif()
+    if(THIS_WITH_PCL)
+      list(APPEND __link_libs ${PCL_LIBRARIES})
+      #list(APPEND __link_libs pcl::pcl)
+      list(APPEND __dll_search_paths ${PCL_LIB_SEARCH_PATH})
+    endif()
 
-  add_executable(${NAME} ${THIS_SRCS})
-  target_link_libraries(${NAME} ${__link_libs})
-  target_create_scripts(${NAME} DLL_SEARCH_PATHS ${__dll_search_paths})
+    add_executable(${NAME} ${THIS_SRCS})
+    target_link_libraries(${NAME} ${__link_libs})
+    target_create_scripts(${NAME} DLL_SEARCH_PATHS ${__dll_search_paths})
 
-  if(THIS_WITH_PCL)
-    target_include_directories(${NAME} PRIVATE ${PCL_INCLUDE_DIRS})
-    #target_compile_definitions(${NAME} PRIVATE ${PCL_DEFINITIONS})
-    #target_compile_options(${NAME} PRIVATE ${PCL_COMPILE_OPTIONS})
-  endif()
-  if(OS_WIN)
-    target_compile_definitions(${NAME}
-      PUBLIC GLOG_NO_ABBREVIATED_SEVERITIES
-    )
-  endif()
+    if(THIS_WITH_PCL)
+      target_include_directories(${NAME} PRIVATE ${PCL_INCLUDE_DIRS})
+      #target_compile_definitions(${NAME} PRIVATE ${PCL_DEFINITIONS})
+      #target_compile_options(${NAME} PRIVATE ${PCL_COMPILE_OPTIONS})
+    endif()
+    if(OS_WIN)
+      target_compile_definitions(${NAME}
+              PUBLIC GLOG_NO_ABBREVIATED_SEVERITIES
+              )
+    endif()
   endmacro()
 
   # packages
@@ -204,15 +204,15 @@ if(WITH_API)
 
   make_executable2(get_data_without_select SRCS get_data_without_select.cc WITH_OPENCV)
   make_executable2(get_imu_correspondence
-  SRCS get_imu_correspondence.cc util_cv.cc
-  WITH_OPENCV
-  )
+          SRCS get_imu_correspondence.cc util_cv.cc
+          WITH_OPENCV
+          )
   make_executable2(get_imu SRCS get_imu.cc util_cv.cc WITH_OPENCV)
   make_executable2(save_single_image SRCS save_single_image.cc WITH_OPENCV)
   make_executable2(get_from_callbacks
-  SRCS get_from_callbacks.cc util_cv.cc
-  WITH_OPENCV
-  )
+          SRCS get_from_callbacks.cc util_cv.cc
+          WITH_OPENCV
+          )
   make_executable2(get_with_plugin SRCS get_with_plugin.cc WITH_OPENCV)
 
   ## control
@@ -224,20 +224,20 @@ if(WITH_API)
   make_executable2(ctrl_iic_address SRCS ctrl_iic_address.cc WITH_OPENCV)
   make_executable2(ctrl_sync_timestamp SRCS ctrl_sync_timestamp.cc WITH_OPENCV)
   make_executable2(ctrl_auto_exposure
-  SRCS ctrl_auto_exposure.cc util_cv.cc
-  WITH_OPENCV
-  )
+          SRCS ctrl_auto_exposure.cc util_cv.cc
+          WITH_OPENCV
+          )
   make_executable2(ctrl_manual_exposure
-  SRCS ctrl_manual_exposure.cc util_cv.cc
-  WITH_OPENCV
-  )
+          SRCS ctrl_manual_exposure.cc util_cv.cc
+          WITH_OPENCV
+          )
 
   if(PCL_FOUND)
 
     make_executable2(get_depth_and_points
-    SRCS get_depth_and_points.cc util_cv.cc util_pcl.cc
-    WITH_OPENCV WITH_PCL
-    )
+            SRCS get_depth_and_points.cc util_cv.cc util_pcl.cc
+            WITH_OPENCV WITH_PCL
+            )
 
   endif()
 endif()
@@ -252,42 +252,52 @@ else()
   ## device_info_writer
 
   make_executable(write_device_info
-    SRCS write_device_info.cc
-    LINK_LIBS device_writer
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS write_device_info.cc
+          LINK_LIBS device_writer
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
 
   ## img_params_writer
 
   make_executable(write_img_params
-    SRCS write_img_params.cc
-    LINK_LIBS device_writer
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS write_img_params.cc
+          LINK_LIBS device_writer
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
 
   ## imu_params_writer
 
   make_executable(write_imu_params
-    SRCS write_imu_params.cc
-    LINK_LIBS device_writer
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS write_imu_params.cc
+          LINK_LIBS device_writer
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
 
   ## save_all_infos
 
   make_executable(save_all_infos
-    SRCS save_all_infos.cc
-    LINK_LIBS device_writer
-    DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-  )
+          SRCS save_all_infos.cc
+          LINK_LIBS device_writer
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
+
+   ## virtual wall
+   
+   make_executable(virtual_wall
+          SRCS virtual_wall.cc CameraFeed.cc ImgProcessor.cc
+          LINK_LIBS device_writer
+          DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+          )
+   
+
 
 endif()
 
 ## record
 
 make_executable(record
-  SRCS record.cc dataset.cc
-  LINK_LIBS mynteye ${OpenCV_LIBS}
-  DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
-)
+        SRCS record.cc dataset.cc
+        LINK_LIBS mynteye ${OpenCV_LIBS}
+        DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
+        )
 
