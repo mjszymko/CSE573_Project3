@@ -45,12 +45,18 @@ print(depth[p2[0]][p2[1]])
 v1 = p2-p1
 v2 = p3-p1
 n = np.cross(v1,v2)
-
-
-dist = abs(np.dot((p3-p1),n))/np.linalg.norm(n)
 unit_n = n/np.linalg.norm(n)
-proj_loc = pt - dist*unit_n
-name = proj_loc - p1
+
+# save n, p1, and unit_n from initial calibration for use in later frames
+
+def getDist(finger_pt, n, p1):
+    dist = abs(np.dot((finger_pt-p1),n))/np.linalg.norm(n)
+    return dist
+ 
+def getProjectedLocation(finger_pt, dist, unit_n, p1): 
+    proj_loc = finger_pt - dist*unit_n
+    wall_loc = proj_loc - p1
+    return wall_loc
 
 
 # print(pt_sums)
