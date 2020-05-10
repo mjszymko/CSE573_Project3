@@ -284,7 +284,7 @@ else()
    ## virtual wall
    
    make_executable(virtual_wall
-          SRCS virtual_wall.cc CameraFeed.cc ImgProcessor.cc
+          SRCS virtual_wall.cc CameraFeed.cc ImgProcessor.cc Math3d.cc
           LINK_LIBS device_writer
           DLL_SEARCH_PATHS ${PRO_DIR}/_install/bin ${OpenCV_LIB_SEARCH_PATH}
           )

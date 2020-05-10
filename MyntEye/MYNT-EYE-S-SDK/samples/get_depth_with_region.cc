@@ -266,6 +266,10 @@ int main(int argc, char *argv[]) {
           90, depth_info);
     }
 
+    //printf("depth at %d\n", depth_data.frame.at<cv::CV_8UC1>(200,200));
+
+
+
     char key = static_cast<char>(cv::waitKey(1));
     if (key == 27 || key == 'q' || key == 'Q') {  // ESC/Q
       break;

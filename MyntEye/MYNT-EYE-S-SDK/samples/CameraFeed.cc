@@ -21,8 +21,10 @@ bool CameraFeed::Init()
     api->ConfigStreamRequest(request);
 
     //api->SetDisparityComputingMethodType(DisparityComputingMethod::SGBM);
-    api->EnableStreamData(Stream::DISPARITY_NORMALIZED);
+    //api->EnableStreamData(Stream::DISPARITY_NORMALIZED);
+    api->EnableStreamData(Stream::DEPTH);
     api->EnableStreamData(Stream::LEFT_RECTIFIED);
+    //api->EnableStreamData(Stream::RIGHT_RECTIFIED);
 
     api->Start(Source::VIDEO_STREAMING);
 
@@ -47,6 +49,21 @@ bool CameraFeed::GetLeft(cv::Mat *frame)
 }
 
 bool CameraFeed::GetDepth(cv::Mat *frame)
+{
+    api->WaitForStreams();
+
+    auto &&left_data = api->GetStreamData(Stream::DEPTH);
+
+    if (!left_data.frame.empty())
+    {
+        *frame = left_data.frame;
+        return true;
+    }
+
+    return false;
+}
+
+bool CameraFeed::GetDisparityNormalized(cv::Mat *frame)
 {
     api->WaitForStreams();
 
@@ -84,8 +101,25 @@ bool CameraFeed::GetLeftRectified(cv::Mat *frame)
     return false;
 }
 
+bool CameraFeed::GetRightRectified(cv::Mat * frame)
+{
+    api->WaitForStreams();
+
+    auto &&left_data = api->GetStreamData(Stream::RIGHT_RECTIFIED);
+
+    if (!left_data.frame.empty()) {
+        *frame = left_data.frame;
+        return true;
+    }
+    return false;
+}
+
+
 bool CameraFeed::Terminate()
 {
     api->Stop(Source::VIDEO_STREAMING);
     return true;
 }
+
+
+

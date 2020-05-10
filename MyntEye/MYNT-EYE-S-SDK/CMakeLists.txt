@@ -40,6 +40,8 @@ endif()
 
 include(cmake/DetectCXX11.cmake)
 
+set(CMAKE_CXX_STANDARD 11)
+
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 

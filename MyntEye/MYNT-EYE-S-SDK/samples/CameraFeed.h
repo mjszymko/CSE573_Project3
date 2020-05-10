@@ -23,8 +23,10 @@ public:
     bool Init();
     bool GetLeft(cv::Mat * frame);
     bool GetLeftRectified(cv::Mat * frame);
+    bool GetRightRectified(cv::Mat * frame);
     bool GetDepth(cv::Mat * frame);
     bool Terminate();
+    bool GetDisparityNormalized(cv::Mat *frame);
 };
 
 
