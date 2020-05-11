@@ -67,6 +67,8 @@ else
 
 void play(n)
 {
+ switch(n)
+{
 	case 0:
 		mciSendString("open \"M0.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
 		time_t t1=time(0);
@@ -181,5 +183,5 @@ void play(n)
     		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
-
+}
 }
