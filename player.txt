@@ -71,116 +71,84 @@ void play(n)
 {
 	case 0:
 		mciSendString("open \"M0.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 from 10000 to 30000 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 1:
 		mciSendString("open \"M1.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 2:
 		mciSendString("open \"M2.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 3:
 		mciSendString("open \"M3.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 4:
 		mciSendString("open \"M4.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 5:
 		mciSendString("open \"M5.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 6:
 		mciSendString("open \"M6.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 7:
 		mciSendString("open \"M7.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 
 	case 8:
 		mciSendString("open \"M8.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 9:
 		mciSendString("open \"M9.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 10:
 		mciSendString("open \"M10.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 11:
 		mciSendString("open \"M11.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 12:
 		mciSendString("open \"M12.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 
 	case 13:
 		mciSendString("open \"M13.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 14:
 		mciSendString("open \"M14.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 	case 15:
 		mciSendString("open \"M15.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		time_t t1=time(0);
     		mciSendString("play mp3 wait", NULL, 0, NULL);
-    		time_t t2=time(0);
 		mciSendString("close mp3", NULL, 0, NULL);
 		break;
 }
