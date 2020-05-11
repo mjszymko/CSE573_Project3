@@ -1,0 +1,185 @@
+#include <windows.h>
+#include <ctime>
+using namespace std;
+// xr and yr are reference coordinates of the left most bottom corner
+void iftouch(x,y,xr,yr,d)
+{
+//considering 16 cells with d distance
+int n=0;
+if(x>=xr && y>=yr)
+{ 
+	if(x<xr+d && y<yr+d && n==0)
+		play(0);
+		n=1;
+	if(x<xr+2*d && y<yr+d && n==0)
+		play(1);
+		n=1;
+	if(x<xr+3*d && y<yr+d && n==0)
+		play(2);
+		n=1;
+	if(x<xr+4*d && y<yr+d && n==0)
+		play(3);
+		n=1;
+	if(x<xr+d && y<yr+2*d && n==0)
+		play(4);
+		n=1;
+	if(x<xr+2*d && y<yr+2*d && n==0)
+		play(5);
+		n=1;
+	if(x<xr+3*d && y<yr+2*d && n==0)
+		play(6);
+		n=1;
+	if(x<xr+4*d && y<yr+2*d && n==0)
+		play(7);
+		n=1;
+	if(x<xr+d && y<yr+3*d && n==0)
+		play(8);
+		n=1;
+	if(x<xr+2*d && y<yr+3*d && n==0)
+		play(9);
+		n=1;
+	if(x<xr+3*d && y<yr+3*d && n==0)
+		play(10);
+		n=1;
+	if(x<xr+4*d && y<yr+3*d && n==0)
+		play(11);
+		n=1;
+	if(x<xr+d && y<yr+4*d && n==0)
+		play(12);
+		n=1;
+	if(x<xr+2*d && y<yr+4*d && n==0)
+		play(13);
+		n=1;
+	if(x<xr+3*d && y<yr+4*d && n==0)
+		play(14);
+		n=1;
+	if(x<xr+4*d && y<yr+4*d && n==0)
+		play(15);
+		n=1;
+	
+}
+
+else
+	cout<<"Pixel not in the grid";
+}
+
+
+
+void play(n)
+{
+	case 0:
+		mciSendString("open \"M0.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 from 10000 to 30000 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 1:
+		mciSendString("open \"M1.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 2:
+		mciSendString("open \"M2.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 3:
+		mciSendString("open \"M3.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 4:
+		mciSendString("open \"M4.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 5:
+		mciSendString("open \"M5.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 6:
+		mciSendString("open \"M6.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 7:
+		mciSendString("open \"M7.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+
+	case 8:
+		mciSendString("open \"M8.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 9:
+		mciSendString("open \"M9.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 10:
+		mciSendString("open \"M10.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 11:
+		mciSendString("open \"M11.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 12:
+		mciSendString("open \"M12.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+
+	case 13:
+		mciSendString("open \"M13.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 14:
+		mciSendString("open \"M14.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+	case 15:
+		mciSendString("open \"M15.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		time_t t1=time(0);
+    		mciSendString("play mp3 wait", NULL, 0, NULL);
+    		time_t t2=time(0);
+		mciSendString("close mp3", NULL, 0, NULL);
+		break;
+
+}
